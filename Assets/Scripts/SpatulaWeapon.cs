@@ -6,6 +6,7 @@ public class SpatulaWeapon : MonoBehaviour
 {
 
     public float launchForce;
+    public Transform spatula;
     private bool notFlipping = true;
 
     private List<GameObject> thingsOnMe;
@@ -27,9 +28,9 @@ public class SpatulaWeapon : MonoBehaviour
     IEnumerator FlipSpatula()
     {
         notFlipping = false;
-        for (var i = 0; i < 30; i++)
+        for (var i = 0; i < 45; i++)
         {
-            transform.eulerAngles = new Vector3(0, 0, i * 3);
+            transform.eulerAngles = new Vector3(0, 0, i);
             yield return null;
         }
 
@@ -38,15 +39,16 @@ public class SpatulaWeapon : MonoBehaviour
             var rb = gobj.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.AddForce(new Vector2(-1, 1) * launchForce, ForceMode2D.Impulse);
+                Debug.Log("launching object");
+                rb.AddForce(spatula.transform.up.normalized * launchForce, ForceMode2D.Impulse);
             }
         });
 
         yield return new WaitForSeconds(1);
 
-        for (var i = 0; i < 90; i++)
+        for (var i = 45; i > 0; i--)
         {
-            transform.eulerAngles = new Vector3(0, 0, 90 - i);
+            transform.eulerAngles = new Vector3(0, 0, i);
             yield return null;
         }
 
