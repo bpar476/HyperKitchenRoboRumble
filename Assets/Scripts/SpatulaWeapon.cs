@@ -11,7 +11,7 @@ public class SpatulaWeapon : MonoBehaviour
 
     private List<GameObject> thingsOnMe;
 
-    private void Start()
+    private void Awake()
     {
         thingsOnMe = new List<GameObject>();
     }

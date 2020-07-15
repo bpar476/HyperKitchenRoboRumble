@@ -14,7 +14,11 @@ public class Blowtorch : MonoBehaviour
         if (Input.GetAxisRaw("Fire2") != 0)
         {
             flame.SetActive(true);
-            attachedBody.AddForce(transform.right.normalized * power);
+            if (attachedBody != null)
+            {
+                // Only happens in UI
+                attachedBody.AddForce(transform.right.normalized * power);
+            }
         }
         else
         {
