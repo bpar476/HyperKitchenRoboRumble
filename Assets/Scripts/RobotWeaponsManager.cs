@@ -28,7 +28,6 @@ public class RobotWeaponsManager : MonoBehaviour
 
     public void UnlockWeapon(RobotWeapon weapon)
     {
-        Debug.Log("unlocking weapon");
         unlockedWeapons.Add(weapon);
     }
 
@@ -48,8 +47,6 @@ public class RobotWeaponsManager : MonoBehaviour
 
     public IReadOnlyCollection<RobotWeapon> GetWeapons()
     {
-        Debug.Log("unlocked weapons has this many weapons");
-        Debug.Log(unlockedWeapons.Count);
         return unlockedWeapons;
     }
 }

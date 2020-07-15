@@ -21,7 +21,6 @@ public class WeaponPicker : MonoBehaviour
 
         foreach (var unlockedWeapon in RobotWeaponsManager.Instance.GetWeapons())
         {
-            Debug.Log("spawning weapon");
             var startPos = new Vector3(400, 0, -1);
 
             // The spatula sprite is not aligned with the position of the root game object because its pivot is funny
