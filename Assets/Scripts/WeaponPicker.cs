@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class WeaponPicker : MonoBehaviour
 {
-    private LinkedList<GameObject> availableWeapons;
-    private LinkedListNode<GameObject> currentWeaponIndex;
+    private class WeaponPickerElement
+    {
+        public WeaponPickerElement(RobotWeapon weapon, GameObject instance)
+        {
+            this.instance = instance;
+            this.weapon = weapon;
+        }
+        public GameObject instance;
+        public RobotWeapon weapon;
+    }
+
+    private LinkedList<WeaponPickerElement> availableWeapons;
+    private LinkedListNode<WeaponPickerElement> currentWeaponIndex;
     private GameObject activeWeapon;
 
     public GameObject SelectedWeapon { get { return activeWeapon; } }
@@ -18,7 +29,7 @@ public class WeaponPicker : MonoBehaviour
             RobotWeaponsManager.Instance.UnlockWeapon(weapon);
         }
 
-        availableWeapons = new LinkedList<GameObject>();
+        availableWeapons = new LinkedList<WeaponPickerElement>();
 
         foreach (var unlockedWeapon in RobotWeaponsManager.Instance.GetWeapons())
         {
@@ -35,7 +46,9 @@ public class WeaponPicker : MonoBehaviour
             weapon.transform.localScale *= 50;
             weapon.transform.localPosition = startPos;
             weapon.SetActive(false);
-            availableWeapons.AddLast(weapon);
+
+            var pickerElement = new WeaponPickerElement(unlockedWeapon, weapon);
+            availableWeapons.AddLast(pickerElement);
         }
         RenderCurrentWeapon();
     }
@@ -83,7 +96,7 @@ public class WeaponPicker : MonoBehaviour
         }
         else
         {
-            activeWeapon = currentWeaponIndex.Value;
+            activeWeapon = currentWeaponIndex.Value.instance;
             activeWeapon.SetActive(true);
         }
     }
