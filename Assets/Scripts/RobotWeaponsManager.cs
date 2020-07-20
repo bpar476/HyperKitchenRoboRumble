@@ -23,6 +23,7 @@ public class RobotWeaponsManager : MonoBehaviour
         }
         else
         {
+            DontDestroyOnLoad(this);
             m_instance = this;
         }
 
