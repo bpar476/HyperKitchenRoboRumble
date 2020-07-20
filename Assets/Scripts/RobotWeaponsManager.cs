@@ -10,6 +10,9 @@ public class RobotWeaponsManager : MonoBehaviour
     private RobotWeapon mainWeapon;
     private RobotWeapon utilityWeapon;
 
+    public RobotWeapon FrontWeapon { get { return mainWeapon; } }
+    public RobotWeapon BackWeapon { get { return utilityWeapon; } }
+
     private HashSet<RobotWeapon> unlockedWeapons;
 
     private void Awake()
