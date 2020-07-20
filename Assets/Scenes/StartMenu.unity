@@ -1448,12 +1448,12 @@ PrefabInstance:
     - target: {fileID: 2115818503708062051, guid: da7c2bc5ebf44c743882663d2c6a27a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -155.59799
+      value: -104.6
       objectReference: {fileID: 0}
     - target: {fileID: 2115818503708062051, guid: da7c2bc5ebf44c743882663d2c6a27a9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.60019
+      value: 22.4
       objectReference: {fileID: 0}
     - target: {fileID: 2115818503708062051, guid: da7c2bc5ebf44c743882663d2c6a27a9,
         type: 3}
@@ -2353,6 +2353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   picker: {fileID: 2120317649}
+  preview: {fileID: 2075602430}
   weaponSelectorTitle: {fileID: 518377119}
 --- !u!1 &1363984060
 GameObject:
@@ -3137,7 +3138,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1880487921}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1332732851}
+        m_MethodName: EquipWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1880487921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3458,6 +3470,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044777256}
   m_CullTransparentMesh: 0
+--- !u!114 &2075602430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4448498849493713968, guid: da7c2bc5ebf44c743882663d2c6a27a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 685056758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb35e631eab01e4483fad1d935b21f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2120317647
 GameObject:
   m_ObjectHideFlags: 0

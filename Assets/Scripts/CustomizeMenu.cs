@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class CustomizeMenu : MonoBehaviour
 {
     public WeaponPicker picker;
+    public ManagedWeaponsLoadout preview;
     private enum WeaponEquipMode
     {
         Front, Back
@@ -44,5 +45,7 @@ public class CustomizeMenu : MonoBehaviour
         {
             throw new System.Exception("Heckin where is my third arm my dude");
         }
+
+        preview.RefreshLoadout();
     }
 }
