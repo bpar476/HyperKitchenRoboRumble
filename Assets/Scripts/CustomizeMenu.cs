@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class CustomizeMenu : MonoBehaviour
 {
+    private enum WeaponEquipMode
+    {
+        Front, Back
+    }
 
     public TMPro.TextMeshProUGUI weaponSelectorTitle;
 
@@ -19,6 +23,11 @@ public class CustomizeMenu : MonoBehaviour
     public void SetEditUtilityWeapon()
     {
         weaponSelectorTitle.text = "Utility Weapon";
+    }
+
+    public void EquipWeapon()
+    {
+
     }
 
 }

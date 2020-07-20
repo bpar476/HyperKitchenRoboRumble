@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class WeaponPicker : MonoBehaviour
 {
-    private List<GameObject> availableWeapons;
-    private int currentWeaponIndex = 0;
+    private LinkedList<GameObject> availableWeapons;
+    private LinkedListNode<GameObject> currentWeaponIndex;
     private GameObject activeWeapon;
 
+    public GameObject SelectedWeapon { get { return activeWeapon; } }
     public RobotWeapon[] debugAvailableWeapons;
 
     private void Start()
@@ -17,7 +18,7 @@ public class WeaponPicker : MonoBehaviour
             RobotWeaponsManager.Instance.UnlockWeapon(weapon);
         }
 
-        availableWeapons = new List<GameObject>();
+        availableWeapons = new LinkedList<GameObject>();
 
         foreach (var unlockedWeapon in RobotWeaponsManager.Instance.GetWeapons())
         {
@@ -34,33 +35,44 @@ public class WeaponPicker : MonoBehaviour
             weapon.transform.localScale *= 50;
             weapon.transform.localPosition = startPos;
             weapon.SetActive(false);
-            availableWeapons.Add(weapon);
+            availableWeapons.AddLast(weapon);
         }
         RenderCurrentWeapon();
     }
 
     public void NextWeapon()
     {
-        currentWeaponIndex += 1;
-        if (currentWeaponIndex >= availableWeapons.Count)
+        if (currentWeaponIndex.Equals(availableWeapons.Last))
         {
-            currentWeaponIndex = 0;
+            currentWeaponIndex = availableWeapons.First;
+        }
+        else
+        {
+            currentWeaponIndex = currentWeaponIndex.Next;
         }
         RenderCurrentWeapon();
     }
 
     public void PreviousWeapon()
     {
-        currentWeaponIndex -= 1;
-        if (currentWeaponIndex < 0)
+        if (currentWeaponIndex.Equals(availableWeapons.First))
         {
-            currentWeaponIndex = availableWeapons.Count - 1;
+            currentWeaponIndex = availableWeapons.Last;
+        }
+        else
+        {
+            currentWeaponIndex = currentWeaponIndex.Previous;
         }
         RenderCurrentWeapon();
     }
 
     private void RenderCurrentWeapon()
     {
+        if (currentWeaponIndex == null)
+        {
+            currentWeaponIndex = availableWeapons.First;
+        }
+
         if (activeWeapon != null)
         {
             activeWeapon.SetActive(false);
@@ -69,18 +81,10 @@ public class WeaponPicker : MonoBehaviour
         {
             // No weapons unlocked
         }
-        else if (currentWeaponIndex >= availableWeapons.Count)
-        {
-            // Bad state, reset to first
-            currentWeaponIndex = 0;
-            RenderCurrentWeapon();
-        }
         else
         {
-            activeWeapon = availableWeapons[currentWeaponIndex];
+            activeWeapon = currentWeaponIndex.Value;
             activeWeapon.SetActive(true);
         }
     }
-
-
 }
