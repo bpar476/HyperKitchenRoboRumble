@@ -17,9 +17,9 @@ public class WeaponPicker : MonoBehaviour
 
     private LinkedList<WeaponPickerElement> availableWeapons;
     private LinkedListNode<WeaponPickerElement> currentWeaponIndex;
-    private GameObject activeWeapon;
+    private WeaponPickerElement activeWeapon;
 
-    public GameObject SelectedWeapon { get { return activeWeapon; } }
+    public RobotWeapon SelectedWeapon { get { return activeWeapon.weapon; } }
     public RobotWeapon[] debugAvailableWeapons;
 
     private void Start()
@@ -88,7 +88,7 @@ public class WeaponPicker : MonoBehaviour
 
         if (activeWeapon != null)
         {
-            activeWeapon.SetActive(false);
+            activeWeapon.instance.SetActive(false);
         }
         if (availableWeapons.Count == 0)
         {
@@ -96,8 +96,8 @@ public class WeaponPicker : MonoBehaviour
         }
         else
         {
-            activeWeapon = currentWeaponIndex.Value.instance;
-            activeWeapon.SetActive(true);
+            activeWeapon = currentWeaponIndex.Value;
+            activeWeapon.instance.SetActive(true);
         }
     }
 }
