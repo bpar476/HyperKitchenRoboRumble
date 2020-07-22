@@ -32,6 +32,11 @@ public class Tongs : AbstractWeapon
         isCoroutineExecuting = false;
     }
 
+    public override void EquipToPlayer(GameObject player)
+    {
+        //TODO: create a FixedJoint2D between the base of the tongs and the robot
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         currentCollision = other;
