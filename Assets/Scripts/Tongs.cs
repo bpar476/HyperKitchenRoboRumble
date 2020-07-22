@@ -3,24 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tongs : MonoBehaviour
+public class Tongs : AbstractWeapon
 {
     private bool isCoroutineExecuting = false;
 
     private Collider2D currentCollision;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void Use()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && currentCollision != null)
+        if (currentCollision != null)
         {
-
             FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
             joint.anchor = currentCollision.offset;
             joint.connectedBody = currentCollision.gameObject.transform.GetComponentInParent<Rigidbody2D>();

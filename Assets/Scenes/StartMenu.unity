@@ -3671,3 +3671,4 @@ MonoBehaviour:
   debugAvailableWeapons:
   - {fileID: 11400000, guid: fa8650e50b028ba4ba761b3dd9819ecf, type: 2}
   - {fileID: 11400000, guid: 85f2cf86db112354fafa950eaa3f4917, type: 2}
+  - {fileID: 11400000, guid: ba161964d6e92f74e87a6a441874eedc, type: 2}
