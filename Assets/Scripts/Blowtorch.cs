@@ -2,27 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blowtorch : MonoBehaviour
+public class Blowtorch : AbstractWeapon
 {
     public GameObject flame;
     public float power;
     public Rigidbody2D attachedBody;
 
-    // Update is called once per frame
-    void Update()
+
+    public override void EquipToPlayer(GameObject player)
     {
-        if (Input.GetAxisRaw("Fire2") != 0)
+        var rb = player.GetComponent<Rigidbody2D>();
+        if (rb == null)
+            Debug.LogError("Attaching blowtorch to game object with no rigidbody does nothing");
+
+        attachedBody = rb;
+
+    }
+
+    public override void Use()
+    {
+        flame.SetActive(true);
+        if (attachedBody != null)
         {
-            flame.SetActive(true);
-            if (attachedBody != null)
-            {
-                // Only happens in UI
-                attachedBody.AddForce(transform.right.normalized * power);
-            }
+            // Only happens in UI
+            attachedBody.AddForce(transform.right.normalized * power);
         }
-        else
-        {
-            flame.SetActive(false);
-        }
+    }
+
+    public override void StopUsing()
+    {
+        flame.SetActive(false);
     }
 }
