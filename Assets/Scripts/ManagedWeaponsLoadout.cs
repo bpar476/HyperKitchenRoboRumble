@@ -11,6 +11,9 @@ public class ManagedWeaponsLoadout : MonoBehaviour
     private AbstractWeapon frontWeaponObject;
     private AbstractWeapon backWeaponObject;
 
+    public AbstractWeapon ActiveFrontWeapon { get { return frontWeaponObject; } }
+    public AbstractWeapon ActiveBackWeapon { get { return backWeaponObject; } }
+
     void Start()
     {
         configuration = GetComponent<RobotConfiguration>();

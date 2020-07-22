@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2115818503708062049}
   - component: {fileID: 133212105936048453}
   - component: {fileID: 4448498849493713968}
+  - component: {fileID: 5248575867878518125}
   m_Layer: 9
   m_Name: PlayerRobot
   m_TagString: Player
@@ -173,6 +174,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efb35e631eab01e4483fad1d935b21f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5248575867878518125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115818503708062053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efc3bff69568f94a80267c55be7ea78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2115818505060997178
