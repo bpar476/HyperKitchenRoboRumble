@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpatulaWeapon : MonoBehaviour
+public class SpatulaWeapon : AbstractWeapon
 {
 
     public float launchForce;
@@ -16,10 +16,14 @@ public class SpatulaWeapon : MonoBehaviour
         thingsOnMe = new List<GameObject>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Use()
     {
-        if (notFlipping && Input.GetAxisRaw("Fire1") != 0)
+        DoFlip();
+    }
+
+    void DoFlip()
+    {
+        if (notFlipping)
         {
             StartCoroutine(FlipSpatula());
         }
