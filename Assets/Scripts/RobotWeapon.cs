@@ -6,5 +6,5 @@ using UnityEngine;
 public class RobotWeapon : ScriptableObject
 {
     public string weaponName;
-    public GameObject prefab;
+    public AbstractWeapon prefab;
 }

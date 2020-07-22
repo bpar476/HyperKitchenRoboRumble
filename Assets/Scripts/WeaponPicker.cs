@@ -45,9 +45,9 @@ public class WeaponPicker : MonoBehaviour
             var weapon = Instantiate(unlockedWeapon.prefab, Vector3.zero, Quaternion.identity, transform);
             weapon.transform.localScale *= 50;
             weapon.transform.localPosition = startPos;
-            weapon.SetActive(false);
+            weapon.gameObject.SetActive(false);
 
-            var pickerElement = new WeaponPickerElement(unlockedWeapon, weapon);
+            var pickerElement = new WeaponPickerElement(unlockedWeapon, weapon.gameObject);
             availableWeapons.AddLast(pickerElement);
         }
         RenderCurrentWeapon();

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Blowtorch
   m_EditorClassIdentifier: 
   weaponName: blowtorch
-  prefab: {fileID: 2338977510791165723, guid: 4c4f51076de377e4888d531e5faab505, type: 3}
+  prefab: {fileID: 2338977510791165726, guid: 4c4f51076de377e4888d531e5faab505, type: 3}

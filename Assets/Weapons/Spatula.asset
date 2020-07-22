@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Spatula
   m_EditorClassIdentifier: 
   weaponName: spatula
-  prefab: {fileID: 6783809204765367497, guid: d7cbab868a8f1cc419d9f6e7e9967b5c, type: 3}
+  prefab: {fileID: 6783809204765367495, guid: d7cbab868a8f1cc419d9f6e7e9967b5c, type: 3}

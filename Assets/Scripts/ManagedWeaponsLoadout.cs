@@ -8,8 +8,8 @@ public class ManagedWeaponsLoadout : MonoBehaviour
 
     private RobotConfiguration configuration;
 
-    private GameObject frontWeaponObject;
-    private GameObject backWeaponObject;
+    private AbstractWeapon frontWeaponObject;
+    private AbstractWeapon backWeaponObject;
 
     void Start()
     {
@@ -26,11 +26,11 @@ public class ManagedWeaponsLoadout : MonoBehaviour
     {
         if (frontWeaponObject != null)
         {
-            frontWeaponObject.SetActive(false);
+            frontWeaponObject.gameObject.SetActive(false);
         }
         if (backWeaponObject != null)
         {
-            backWeaponObject.SetActive(false);
+            backWeaponObject.gameObject.SetActive(false);
         }
 
         RobotWeaponsManager weaponsManager = RobotWeaponsManager.Instance;
@@ -38,6 +38,7 @@ public class ManagedWeaponsLoadout : MonoBehaviour
         if (frontWeapon != null)
         {
             frontWeaponObject = Instantiate(weaponsManager.FrontWeapon.prefab, configuration.FrontWeaponPosition.position, Quaternion.identity, transform);
+            frontWeaponObject.EquipToPlayer(gameObject);
         }
         else
         {
@@ -47,6 +48,7 @@ public class ManagedWeaponsLoadout : MonoBehaviour
         if (backWeapon != null)
         {
             backWeaponObject = Instantiate(weaponsManager.BackWeapon.prefab, configuration.BackWeaponPosition.position, Quaternion.identity, transform);
+            backWeaponObject.EquipToPlayer(gameObject);
         }
         else
         {
