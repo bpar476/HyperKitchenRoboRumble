@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SecondBattle.unity
     guid: 84d609ff55c71394f86eb3a0b4d5cf43
+  - enabled: 1
+    path: Assets/Scenes/WinnerMenu.unity
+    guid: b0807bbeb4a93744caaceccf1d2ebd71
   m_configObjects: {}
